@@ -22,23 +22,23 @@ var calendarHeatmap = module.exports = {
   /**
    * Initialize
    */
-  init: function(data, container, color, overview, handler) {
+  init: function(opts) {
     // Set calendar data
-    calendarHeatmap.data = data;
+    calendarHeatmap.data = opts.data;
 
     // Set calendar container
-    calendarHeatmap.container = container;
+    calendarHeatmap.container = opts.container;
 
     // Set calendar color
-    calendarHeatmap.color = color || '#ff4500';
+    calendarHeatmap.color = opts.color || '#ff4500';
 
     // Initialize current overview type and history
-    calendarHeatmap.overview = overview || 'global';
+    calendarHeatmap.overview = opts.overview || 'global';
     calendarHeatmap.history = ['global'];
     calendarHeatmap.selected = {};
 
     // Set handler function
-    calendarHeatmap.handler = handler;
+    calendarHeatmap.handler = opts.handler;
 
     // No transition to start with
     calendarHeatmap.in_transition = false;
