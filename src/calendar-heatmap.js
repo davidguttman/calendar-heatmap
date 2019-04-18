@@ -57,7 +57,11 @@ var calendarHeatmap = (module.exports = {
   createElements: function() {
     if (calendarHeatmap.container != null) {
       // Access container for calendar
-      var container = document.getElementById(calendarHeatmap.container);
+      var container =
+        typeof calendarHeatmap === "string"
+          ? document.getElementById(calendarHeatmap.container)
+          : calendarHeatmap.container;
+
       if (!container || container.tagName != "DIV") {
         throw "Element not found or not of type div";
       }
