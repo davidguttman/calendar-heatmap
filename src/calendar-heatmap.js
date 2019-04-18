@@ -1,8 +1,9 @@
 'use strict';
 
-/* globals d3 */
+var d3 = require('d3')
+var moment = require('moment')
 
-var calendarHeatmap = {
+var calendarHeatmap = module.exports = {
 
   settings: {
     gutter: 5,
