@@ -977,8 +977,8 @@ var calendarHeatmap = (module.exports = {
     }
 
     // Define beginning and end of the month
-    var start_of_month = moment(calendarHeatmap.selected.date).startOf("month");
-    var end_of_month = moment(calendarHeatmap.selected.date).endOf("month");
+    var start_of_month = moment(calendarHeatmap.selected.date).startOf("month").day(0);
+    var end_of_month = moment(calendarHeatmap.selected.date).endOf("month").day(6);
 
     // Filter data down to the selected month
     var month_data = calendarHeatmap.data.filter(function(d) {
@@ -1230,7 +1230,7 @@ var calendarHeatmap = (module.exports = {
         return Math.floor(calendarHeatmap.settings.label_padding / 3) + "px";
       })
       .text(function(d) {
-        return "Week " + d.week();
+        return moment(d).day(0).format('MMMM Do')
       })
       .attr("x", function(d) {
         return weekScale(d.week());
