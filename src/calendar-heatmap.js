@@ -1141,7 +1141,7 @@ var calendarHeatmap = (module.exports = {
         }
 
         // Get date from the parent node
-        var date = new Date(d3.select(this.parentNode).attr("date"));
+        var date = moment(d3.select(this.parentNode).attr("date"));
 
         // Construct tooltip
         var tooltip_html = "";
